@@ -1,14 +1,16 @@
 "use client"
+
 import { useState } from "react"
+import { useBudgets } from "./BudgetProvider"
 
 export default function BudgetForm() {
   const [category, setCategory] = useState("")
   const [amount, setAmount] = useState("")
+  const { addBudget } = useBudgets()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Nanti: kirim ke state global atau API
-    console.log("Anggaran Baru:", category, amount)
+    addBudget({ category, amount: +amount, spent: 0 })
     setCategory("")
     setAmount("")
   }
@@ -31,7 +33,7 @@ export default function BudgetForm() {
         className="w-full p-2 border rounded"
         required
       />
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
         Tambahkan Anggaran
       </button>
     </form>
