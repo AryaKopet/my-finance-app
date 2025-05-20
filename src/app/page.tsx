@@ -1,6 +1,6 @@
 import SummaryCards from "../components/SummaryCard";
 import FinanceChart from "../components/FinanceChart";
-import RecentTransactions from "../components/RecentTrancastions";
+import RecentTransactions from "../components/transaction/RecentTrancastions";
 
 export default function Home() {
   return (
